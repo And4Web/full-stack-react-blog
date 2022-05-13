@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotEnv = require("dotenv");
 
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
 
 const PORT = 8000;
 
@@ -18,6 +19,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
 
 app.get("/", (req, res) => {
   res.send("home page");
